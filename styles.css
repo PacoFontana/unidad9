@@ -29,12 +29,113 @@ body{
 .hamburger{background:none; border:0; padding:8px; display:inline-flex; flex-direction:column; gap:4px; align-items:center; justify-content:center}
 .hamburger .bar{display:block; width:22px; height:3px; border-radius:3px; background:linear-gradient(90deg,var(--accent), #ff3b3b); transition:transform .25s ease, opacity .2s}
 
-/* NAV OVERLAY */
-.nav-overlay{position:fixed; inset:0; background: linear-gradient(180deg, rgba(0,0,0,0.92), rgba(0,0,0,0.95)); transform:translateY(-100%); transition:transform .38s cubic-bezier(.2,.9,.2,1); display:flex; align-items:center; justify-content:center;}
-.nav-overlay[aria-hidden="false"]{transform:translateY(0)}
-.nav-inner{display:flex; flex-direction:column; gap:18px; align-items:center}
-.nav-link{color:#fff; text-decoration:none; font-size:20px; padding:10px 18px; border-radius:12px; background:var(--card-bg); box-shadow:0 8px 30px rgba(0,0,0,0.6)}
-.nav-close{margin-top:12px; background:none; border:1px solid rgba(255,255,255,0.06); color:#fff; padding:8px 12px; border-radius:8px}
+/* NAV OVERLAY (mejorado: panel centrado, glass, animaciones, links grandes) */
+.nav-overlay{
+  position:fixed;
+  inset:0;
+  z-index:9999; /* encima de todo */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(180deg, rgba(0,0,0,0.70), rgba(0,0,0,0.85));
+  transform: translateY(-120%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    transform .38s cubic-bezier(.2,.9,.2,1),
+    opacity .22s ease;
+}
+
+/* Panel interior (tarjeta con efecto glass) */
+/* Panel interior (tarjeta con margen superior para separar del top) */
+.nav-overlay .nav-inner{
+  width: min(420px, 92%);
+  padding: 22px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  box-shadow: 0 20px 50px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:stretch;
+  /* animación */
+  transform: translateY(-12px) scale(.995);
+  transition: transform .32s cubic-bezier(.2,.9,.2,1), opacity .2s ease;
+  opacity: 0;
+
+  /* >>> este es el ajuste clave <<< */
+  padding-top: 80px; /* baja todo el panel hacia abajo */
+}
+
+
+/* Estado visible del overlay y animación del panel */
+.nav-overlay[aria-hidden="false"]{
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.nav-overlay[aria-hidden="false"] .nav-inner{
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Estilo para los links dentro del panel */
+.nav-inner .nav-link{
+  display:block;
+  text-decoration:none;
+  color: #fff;
+  font-size:18px;
+  font-weight:700;
+  padding:12px 16px;
+  border-radius:10px;
+  text-align:center;
+  letter-spacing:0.4px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.02);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+  transition: transform .14s ease, box-shadow .14s ease, background .12s ease;
+}
+
+/* Hover / focus */
+.nav-inner .nav-link:hover,
+.nav-inner .nav-link:focus{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.6);
+}
+
+/* Botón de cerrar (más grande, visible y accesible) */
+.nav-inner .nav-close{
+  margin-top:6px;
+  align-self:center;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:10px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+}
+.nav-inner .nav-close:hover{ transform: translateY(-3px); }
+
+/* Enlaces secundarios (más discretos) dentro del panel si existen */
+.nav-inner .nav-link.secondary{
+  font-weight:600;
+  font-size:15px;
+  background:transparent;
+  border:0;
+  color:var(--muted);
+  box-shadow:none;
+}
+
+/* Asegura buen comportamiento en pantallas muy pequeñas */
+@media(max-height:520px){
+  .nav-overlay .nav-inner{ max-height:90vh; overflow:auto; padding:18px; gap:10px; }
+}
+
 
 /* HERO */
 .hero{padding:26px 0;}

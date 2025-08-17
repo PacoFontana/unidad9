@@ -1,4 +1,4 @@
-// JavaScript simple interactivity: menú y mejoras móviles
+// JavaScript simple interactivity: menú y mejoras móviles (versión robusta)
 (function(){
   const hamburger = document.getElementById('hamburger');
   const nav = document.getElementById('main-nav');
@@ -7,36 +7,49 @@
 
   function setYear(){
     const y = new Date().getFullYear();
-    yearEls.forEach(el=> el.textContent = y);
+    yearEls.forEach(el=> el && (el.textContent = y));
   }
   setYear();
 
-  function openNav(){
-    nav.setAttribute('aria-hidden', 'false');
-    hamburger.setAttribute('aria-expanded','true');
-  }
-  function closeNav(){
-    nav.setAttribute('aria-hidden', 'true');
-    hamburger.setAttribute('aria-expanded','false');
+  // Safe getters
+  function isOpen(){
+    return nav && nav.getAttribute('aria-hidden') === 'false';
   }
 
-  hamburger && hamburger.addEventListener('click', ()=>{
-    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-    if(expanded) closeNav(); else openNav();
-  });
+  function openNav(){
+    if(!nav) return;
+    nav.setAttribute('aria-hidden','false');
+    hamburger && hamburger.setAttribute('aria-expanded','true');
+    // prevent body scroll while nav open (mobile nicety)
+    document.documentElement.style.overflow = 'hidden';
+  }
+  function closeNav(){
+    if(!nav) return;
+    nav.setAttribute('aria-hidden','true');
+    hamburger && hamburger.setAttribute('aria-expanded','false');
+    document.documentElement.style.overflow = '';
+  }
+
+  if(hamburger){
+    hamburger.addEventListener('click', (e)=>{
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      if(expanded) closeNav(); else openNav();
+    });
+  }
 
   navClose && navClose.addEventListener('click', closeNav);
 
   // close nav on ESC
   document.addEventListener('keydown', (e)=>{
-    if(e.key === 'Escape') closeNav();
+    if(e.key === 'Escape' && isOpen()) closeNav();
   });
 
   // close overlay when clicking outside inner area
   document.addEventListener('click', (e)=>{
-    if(!nav) return;
+    if(!nav || nav.getAttribute('aria-hidden') === 'true') return;
     const inner = nav.querySelector('.nav-inner');
-    if(nav.getAttribute('aria-hidden') === 'false' && !inner.contains(e.target) && !hamburger.contains(e.target)){
+    // if click is outside inner and not on hamburger, close
+    if(!inner.contains(e.target) && !(hamburger && hamburger.contains(e.target))){
       closeNav();
     }
   });
@@ -51,6 +64,8 @@
       const target = document.querySelector(href);
       if(target){
         target.scrollIntoView({behavior:'smooth', block:'start'});
+        // close nav after navigating (mobile behaviour)
+        if(isOpen()) closeNav();
       }
     }
   });
