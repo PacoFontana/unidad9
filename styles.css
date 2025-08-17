@@ -69,6 +69,52 @@ body{
   padding-top: 80px; /* baja todo el panel hacia abajo */
 }
 
+/* === GALERÍA / CARRUSEL === */
+.gallery {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  min-width: 100%;
+  object-fit: cover;
+  max-height: 320px;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent, #a30000);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.3em 0.6em;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  transition: background 0.2s ease;
+}
+
+.carousel-btn:hover {
+  background: #ff3333;
+}
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
 
 /* Estado visible del overlay y animación del panel */
 .nav-overlay[aria-hidden="false"]{
