@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UNIDAD9 — Clan DayZ</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="UNIDAD9 — Clan de DayZ. Información, normas, ubicación del campamento y redes." />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <div class="brand">
+        <img src="images/clan-profile.png" alt="Foto del clan" class="brand-img" />
+        <h1 class="brand-title">UNIDAD9</h1>
+      </div>
+    </div>
+
+    <nav id="main-nav" class="nav-overlay" aria-hidden="true">
+      <div class="nav-inner">
+        <a href="index.html#inicio" class="nav-link">Inicio</a>
+        <a href="normas.html" class="nav-link">Normativas</a>
+        <a href="#redes" class="nav-link">Redes sociales</a>
+        <a href="#whatsapp" class="nav-link">Whatsapp</a>
+        <a href="#discord" class="nav-link">Discord</a>
+        <button class="nav-close" id="nav-close">Cerrar ✕</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO / INICIO -->
+    <section id="inicio" class="hero">
+      <div class="hero-inner container">
+        <div class="hero-photo-wrap">
+          <!-- Imagen del clan -->
+          <img src="images/clan-profile.png" alt="Foto del clan" class="hero-photo" />
+        </div>
+        <div class="hero-content">
+          <h2 class="clan-name">UNIDAD9</h2>
+          <p class="clan-desc">Clan de supervivencia en DayZ. Cooperativo, organizado y listo para resistir el apocalipsis. Aquí encontrarás reglas, cómo identificar a miembros y la ubicación de nuestro campamento.</p>
+          <div class="hero-ctas">
+            <a href="#identificar" class="btn btn-primary">Unirse / Saber más</a>
+            <a href="normas.html" class="btn btn-outline">Normativas</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: Cómo identificar a un miembro del clan -->
+    <section id="identificar" class="section card">
+      <div class="container">
+        <h3 class="section-title">Cómo identificar a un miembro del clan</h3>
+        <p class="muted">Aquí podrás poner las formas oficiales de identificarnos: brazaletes, ropa, señales, voces, etc.</p>
+
+        <div class="media-grid">
+          <div class="video-card">
+            <!-- VIDEO: reemplaza images/idmiembro.mp4 por tu archivo real -->
+            <video
+              id="video-idmiembro"
+              class="video-element"
+              src="images/idmiembro.mp4"
+              controls
+              playsinline
+              preload="metadata"
+              poster="images/idmiembro-poster.jpg"
+            >
+              Tu navegador no soporta video. Descarga el archivo <a href="images/idmiembro.mp4">aquí</a>.
+            </video>
+
+            <a href="normas.html" class="btn btn-primary btn-block">Ver Normativas</a>
+          </div>
+
+          <div class="image-card">
+            <!-- Imagen ubicación del campamento -->
+            <img src="images/mapaint.png" alt="Ubicación del campamento" class="camp-img"/>
+            <a href="normas.html#campamento" class="btn btn-outline btn-block">Leer normativas del campamento</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: Fundador -->
+    <section id="fundador" class="section founder">
+      <div class="container">
+        <h3 class="section-title">Fundador</h3>
+        <div class="founder-card">
+          <!-- Foto del fundador -->
+          <img src="images/founder.png" alt="Fundador" class="founder-photo" />
+          <h4 class="founder-name">Paco Fontana</h4>
+          <p class="founder-story">Fundo Unidad 9 el 05/08/25 a raíz de un grupo de 9 amigos con quienes programó jugar DayZ al anunciarse en PS Plus. Luego decidió ampliar el clan invitando personas de forma masiva mediante las redes sociales, convirtiendo U9 en una gran comunidad que sigue creciendo y mejorando, afrontando las situaciones que se presentan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: Redes sociales -->
+    <section id="redes" class="section social">
+      <div class="container">
+        <h3 class="section-title">Redes sociales</h3>
+        <p class="muted">Encuéntranos en nuestras plataformas oficiales.</p>
+        <div class="social-grid">
+          <a href="#" class="social-card">TikTok</a>
+          <a href="#" class="social-card">YouTube</a>
+          <a href="#" class="social-card">Instagram</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/clan-profile.png" alt="UNIDAD9" class="footer-logo" />
+        <div>
+          <strong>UNIDAD9</strong>
+          <div class="footer-links">
+            <a href="normas.html">Normativas</a>
+            <a href="#redes">Redes</a>
+            <a href="#discord">Discord</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy">&copy; <span id="year">2025</span> UNIDAD9 — Todos los derechos reservados</div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+:root{
+  --bg: #1e1e1e; /* color base: gris oscuro solicitado */
+  --accent: #8B0000; /* rojo oscuro (puedes cambiar a otro hex si prefieres) */
+  --muted: #bdbdbd;
+  --card-bg: rgba(255,255,255,0.03);
+  --glass: rgba(255,255,255,0.02);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:var(--bg);
+  color:#fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container{padding:18px; max-width:1000px; margin:0 auto}
+
+/* HEADER */
+.site-header{position:sticky; top:0; z-index:60; backdrop-filter: blur(6px); background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.12)); box-shadow: 0 6px 18px rgba(0,0,0,0.6)}
+.header-inner{display:flex; align-items:center; gap:10px; padding:12px}
+.brand{display:flex; align-items:center; gap:10px}
+.brand-img{width:46px; height:46px; object-fit:cover; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.brand-title{font-size:18px; margin:0}
+
+.hamburger{background:none; border:0; padding:8px; display:inline-flex; flex-direction:column; gap:4px; align-items:center; justify-content:center}
+.hamburger .bar{display:block; width:22px; height:3px; border-radius:3px; background:linear-gradient(90deg,var(--accent), #ff3b3b); transition:transform .25s ease, opacity .2s}
+
+/* NAV OVERLAY */
+.nav-overlay{position:fixed; inset:0; background: linear-gradient(180deg, rgba(0,0,0,0.92), rgba(0,0,0,0.95)); transform:translateY(-100%); transition:transform .38s cubic-bezier(.2,.9,.2,1); display:flex; align-items:center; justify-content:center;}
+.nav-overlay[aria-hidden="false"]{transform:translateY(0)}
+.nav-inner{display:flex; flex-direction:column; gap:18px; align-items:center}
+.nav-link{color:#fff; text-decoration:none; font-size:20px; padding:10px 18px; border-radius:12px; background:var(--card-bg); box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+.nav-close{margin-top:12px; background:none; border:1px solid rgba(255,255,255,0.06); color:#fff; padding:8px 12px; border-radius:8px}
+
+/* HERO */
+.hero{padding:26px 0;}
+.hero-inner{display:flex; gap:14px; align-items:center}
+.hero-photo{width:110px; height:110px; border-radius:14px; object-fit:cover; box-shadow:0 14px 40px rgba(0,0,0,0.7); transform:translateY(-6px); animation:logo-drop .8s cubic-bezier(.2,.9,.2,1) forwards}
+
+.clan-name{font-size:26px; margin:0 0 6px}
+.clan-desc{color:var(--muted); margin:0 0 12px}
+.hero-ctas{display:flex; gap:10px; flex-wrap:wrap}
+
+.btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:12px; text-decoration:none; font-weight:600; min-width:120px}
+.btn-primary{background:linear-gradient(180deg,var(--accent), #610000); color:#fff; box-shadow:0 10px 30px rgba(139,0,0,0.25); border:0}
+.btn-outline{background:transparent; border:1px solid rgba(255,255,255,0.06); color:#fff}
+.btn-block{width:100%}
+.btn:hover{transform:translateY(-3px); transition:all .18s ease}
+
+/* SECTIONS */
+.section{padding:18px 0}
+.card{background:var(--card-bg); border-radius:14px; padding:14px; box-shadow:0 8px 34px rgba(0,0,0,0.6); margin-bottom:14px}
+.section-title{margin:6px 0 10px}
+.muted{color:var(--muted)}
+
+.media-grid{display:grid; grid-template-columns:1fr; gap:12px}
+
+/* placeholder removed - we have an actual video element now */
+/* .video-placeholder{...} */
+
+.camp-img{width:100%; height:180px; object-fit:cover; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+
+.founder-card{display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px}
+.founder-photo{width:110px; height:110px; border-radius:999px; object-fit:cover; border:4px solid rgba(255,255,255,0.04); box-shadow:0 12px 34px rgba(0,0,0,0.7)}
+.founder-name{margin:0}
+.founder-story{color:var(--muted); max-width:720px}
+
+.social-grid{display:flex; gap:8px; flex-wrap:wrap}
+.social-card{display:inline-flex; padding:10px 12px; min-width:100px; justify-content:center; border-radius:10px; background:var(--glass); text-decoration:none; color:#fff}
+
+/* FOOTER */
+.site-footer{border-top:1px solid rgba(255,255,255,0.04); padding:18px 0}
+.footer-inner{display:flex; align-items:center; justify-content:space-between; gap:12px}
+.footer-brand{display:flex; align-items:center; gap:10px}
+.footer-logo{width:44px; height:44px; object-fit:cover; border-radius:8px}
+.footer-links a{margin-right:8px; color:var(--muted); text-decoration:none}
+.footer-copy{color:var(--muted)}
+
+/* Responsive: mobile-first */
+@media(min-width:720px){
+  .hero-inner{align-items:center}
+  .media-grid{grid-template-columns:1fr 1fr}
+}
+
+/* small tweaks */
+:focus{outline:2px solid rgba(255,255,255,0.06); outline-offset:3px}
+
+/* Animations */
+@keyframes logo-drop{0%{transform:translateY(-28px) scale(.98); opacity:0}100%{transform:translateY(0) scale(1); opacity:1}}
+
+/* small header for subpages */
+.site-header-small{background:linear-gradient(180deg, rgba(0,0,0,0.42), transparent); padding:8px 0}
+.header-small-inner{display:flex; align-items:center; gap:12px}
+.back-link{color:#fff; text-decoration:none}
+
+/* utility */
+.muted{color:var(--muted)}
+
+/* small size footer */
+.site-footer.small .footer-inner{justify-content:center}
+
+/* VIDEO element styling */
+.video-element{
+  width:100%;
+  height:180px;
+  border-radius:10px;
+  object-fit:cover;
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+  background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
+}
+
+@media(min-width:720px){
+  .video-element{ height:220px; }
+}
