@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Descargar mapa — UNIDAD9</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Guía paso a paso: cómo descargar y usar el mapa de DayZ con iZurvive — UNIDAD9" />
+  <style>
+    /* Ajustes específicos para esta subpágina (puedes moverlos a styles.css) */
+    .subpage-hero{padding:18px 0 6px}
+    .back-link{display:inline-flex;gap:10px;align-items:center;color:#fff;text-decoration:none;font-weight:700}
+    .map-card{background:var(--card-bg);border-radius:12px;padding:18px;box-shadow:0 10px 34px rgba(0,0,0,0.6);margin-top:12px}
+    .step{display:flex;gap:16px;align-items:flex-start;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.02)}
+    .step:last-child{border-bottom:0}
+    .step-num{width:52px;height:52px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent);box-shadow:0 8px 22px rgba(0,0,0,0.6)}
+    .step-title{margin:0 0 6px}
+    .image-placeholder{width:100%;height:180px;border-radius:10px;border:2px dashed rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;color:var(--muted);background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
+    .two-small-ctas{display:inline-flex;gap:8px;margin-top:10px}
+    .small-cta{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;text-decoration:none;color:#fff;font-weight:700}
+    .note{background:linear-gradient(90deg, rgba(139,0,0,0.04), rgba(139,0,0,0.02));padding:12px;border-radius:10px;margin-top:8px}
+    /* estilo para las imágenes insertadas */
+    .filled-image{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      border-radius:10px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.6);
+      display:block;
+    }
+    @media(min-width:720px){ .step{gap:24px} .image-placeholder{height:220px} .filled-image{height:220px} }
+  </style>
+</head>
+<body>
+  <!-- Usamos la variante pequeña del header para mantener consistencia visual en subpáginas -->
+  <header class="site-header site-header-small">
+    <div class="header-inner container header-small-inner">
+      <a class="back-link" href="index.html">
+        ‹ Volver
+      </a>
+      <div style="margin-left:auto; color:var(--muted)">Descargar & ver mapa</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="subpage-hero">
+      <div class="map-card">
+        <h2 style="margin:0 0 6px">Guía: descargar y usar el mapa de DayZ (iZurvive)</h2>
+        <p class="muted">En esta página verás una guía ordenada, sigue los pasos en tu móvil para tener el mapa del clan sincronizado.</p>
+
+        <!-- Pasos -->
+        <div style="margin-top:12px">
+
+          <!-- Paso 1 -->
+          <article class="step" id="paso-1">
+            <div class="step-num">1</div>
+            <div style="flex:1">
+              <h3 class="step-title">Paso 1 — Instalar iZurvive</h3>
+              <p class="muted">Abre Google Play (Android) o Apple Store (iOS) y busca <strong>iZurvive</strong>. Instala la aplicación en tu dispositivo.</p>
+
+              <!-- IMAGEN: reemplaza el src por tu archivo real dentro de images/ -->
+              <img class="filled-image" id="img-step1"
+                   src="images/izurvive-store.jpg"
+                   alt="iZurvive en tiendas (Play Store / App Store)" loading="lazy">
+
+              <div class="two-small-ctas">
+                <!-- REEMPLAZA LOS HREFS por los links reales en Play Store / App Store -->
+                <a id="btn-android" class="small-cta" href="https://play.google.com/store/apps/details?id=com.innovaptor.izurvive" target="_blank" rel="noopener noreferrer">Android</a>
+                <a id="btn-apple" class="small-cta" href="https://apps.apple.com/app/id585632597" target="_blank" rel="noopener noreferrer">Apple</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Paso 2 (descargar mapa) -->
+          <article class="step" id="paso-2">
+            <div class="step-num">2</div>
+            <div style="flex:1">
+              <h3 class="step-title">Paso 2 — Descargar el mapa</h3>
+              <p class="muted">Dentro de iZurvive busca el mapa correspondiente (por ejemplo: Livonia, Chernarus) y descárgalo para uso.</p>
+
+              <!-- IMAGEN: mapa descargado -->
+              <img class="filled-image" id="img-step3"
+                   src="images/mapa-descargado.jpg"
+                   alt="Mapa descargado en iZurvive" loading="lazy">
+            </div>
+          </article>
+
+          <!-- Paso 3 (crear cuenta) -->
+          <article class="step" id="paso-3">
+            <div class="step-num">3</div>
+            <div style="flex:1">
+              <h3 class="step-title">Paso 3 — Crear una cuenta</h3>
+              <p class="muted">Crea una cuenta si aún no la tienes. Puedes registrarte con correo o usar el método que prefieras.</p>
+
+              <div style="display:flex;gap:10px;margin-top:8px">
+                <!-- IMAGEN 1 -->
+                <img class="filled-image" id="img-step2a"
+                     src="images/step2a.jpg"
+                     alt="Pantalla de registro iZurvive (ejemplo)" loading="lazy">
+                <!-- IMAGEN 2 -->
+                <!--<img class="filled-image" id="img-step2b"
+                     src="images/step2b.png"
+                     alt="Permisos y configuración inicial en iZurvive" loading="lazy">-->
+              </div>
+
+              <!--<p class="muted" style="margin-top:8px">Debajo de cada imagen puedes añadir una descripción breve sobre lo que muestra (ej. formulario de registro, permisos requeridos).</p>-->
+            </div>
+          </article>
+
+          <!-- Paso 4 -->
+          <article class="step" id="paso-4">
+            <div class="step-num">4</div>
+            <div style="flex:1">
+              <h3 class="step-title">Paso 4 — Ingresar a la frecuencia del clan</h3>
+              <p class="muted">Para poder ver a los demás jugadores en el mapa debes añadir la frecuencia / enlace del clan dentro de iZurvive.</p>
+
+              <!-- IMAGEN: frecuencia -->
+              <img class="filled-image" id="img-step4"
+                   src="images/frecuencia-demo.jpg"
+                   alt="Ejemplo: cómo añadir la frecuencia del clan en iZurvive" loading="lazy">
+
+              <div style="margin-top:10px">
+                <!-- REEMPLAZA el href por el enlace de la frecuencia de tu clan -->
+                <a id="btn-frequency" class="btn btn-primary" href="https://www.izurvive.com/invite/hrtmnNDBTElcnsezK2YPew" target="_blank" rel="noopener noreferrer">Acceder a la frecuencia</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Paso 5 -->
+          <article class="step" id="paso-5">
+            <div class="step-num">5</div>
+            <div style="flex:1">
+              <h3 class="step-title">Paso 5 — Uso de la app</h3>
+              <p class="muted">La app es simple: acerca/aleja, activa capas, y revisa los pins de jugadores. Ajusta las opciones para mostrar solo lo que necesites.</p>
+
+              <!-- IMAGEN: uso de la app -->
+              <img class="filled-image" id="img-step5"
+                   src="images/uso-app.jpg"
+                   alt="Uso de la app iZurvive (ejemplo de navegación del mapa)" loading="lazy">
+              <p class="muted" style="margin-top:8px">Puedes mantener presionado los iconos para abrir una pre-visual de la estructura del lugar o puntos de refrencia.</p>
+            </div>
+          </article>
+
+          <!-- Nota adicional -->
+          <article class="step" id="nota-adicional">
+            <div class="step-num">!</div>
+            <div style="flex:1">
+              <h3 class="step-title">Nota</h3>
+              <div class="note">Evita crear más de un pin con tu nombre: muévelo con sincronía o elimina el anterior antes de crear uno nuevo.</div>
+
+              <div style="display:flex;gap:10px;margin-top:10px">
+                <img class="filled-image" id="img-note1" src="images/note1.jpg" alt="Mover pin en iZurvive" loading="lazy">
+                <img class="filled-image" id="img-note2" src="images/note2.jpg" alt="Eliminar pin anterior en iZurvive" loading="lazy">
+              </div>
+
+              <p class="muted" style="margin-top:8px">Puedes mantener pulsado tu pin y moverlo dentro del mapa para ajustar tu posición real.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Pie con llamada a acción -->
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+          <!-- REEMPLAZA el href por tu archivo .zip real si lo vas a ofrecer -->
+          <!--<a id="download-zip" class="btn btn-outline" href="assets/mapa-unidad9.zip" download>Descargar mapa (archivo)</a>-->
+          <!-- Abrir el sitio de iZurvive o la URL de la app web -->
+          <a id="open-izurvive" class="btn btn-primary" href="https://izurvive.com" target="_blank" rel="noopener noreferrer">Abrir iZurvive</a>
+        </div>
+
+        <p class="muted" style="margin-top:12px">Cualquier duda puedes preguntarla por el grupo y alguien te ayudara siempre.</p>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer small">
+    <div class="container footer-inner">
+      <div class="footer-copy">&copy; <span id="year">2025</span> UNIDAD9 — Guía de mapa</div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <!-- Nota: no hay JS que modifique hrefs ni que inyecte imágenes. -->
+</body>
+</html>
